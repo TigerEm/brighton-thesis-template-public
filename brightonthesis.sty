@@ -1,0 +1,277 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{brightonthesis}[2026/07/29 University of Brighton thesis style]
+
+% Optional package setting:
+%   \usepackage[runningheads]{brightonthesis}
+\newif\ifbrightonrunningheads
+\brightonrunningheadsfalse
+\DeclareOption{runningheads}{\brightonrunningheadstrue}
+\ProcessOptions\relax
+
+% ==================================================================
+% CENTRAL STYLE SETTINGS
+% Future formatting changes should normally be made in this file only.
+% Compile the thesis with XeLaTeX.
+% ==================================================================
+
+% ---------- FONT ----------
+\RequirePackage{fontspec}
+\IfFontExistsTF{Arial}
+  {\setmainfont{Arial}}
+  {\IfFontExistsTF{Helvetica}
+     {\setmainfont{Helvetica}}
+     {\IfFontExistsTF{Times New Roman}
+        {\setmainfont{Times New Roman}}
+        {\setmainfont{DejaVu Sans}}}}
+
+% ---------- PAGE AND MARGINS ----------
+\RequirePackage[
+  a4paper,
+  left=40mm,
+  right=20mm,
+  top=20mm,
+  bottom=20mm,
+  includefoot,
+  footskip=10mm
+]{geometry}
+
+% ---------- PARAGRAPHS AND LINE SPACING ----------
+\RequirePackage{setspace}
+\RequirePackage{ragged2e}
+\onehalfspacing
+\AtBeginDocument{\RaggedRight}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.75\baselineskip}
+
+% Avoid division of words at line endings.
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\emergencystretch=3em
+
+% ---------- CORE PACKAGES ----------
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{graphicx}
+\RequirePackage{tikz}
+\usetikzlibrary{positioning}
+\RequirePackage{booktabs}
+\RequirePackage{longtable}
+\RequirePackage{array}
+\RequirePackage{caption}
+\RequirePackage{subcaption}
+\RequirePackage{enumitem}
+\RequirePackage[autostyle=true,style=british]{csquotes}
+\RequirePackage{xcolor}
+\RequirePackage{fancyhdr}
+\RequirePackage{etoolbox}
+\RequirePackage{endnotes}
+\RequirePackage[hidelinks,bookmarksnumbered,pdfpagelabels]{hyperref}
+
+% ---------- HEADINGS ----------
+% Standard book headings are left aligned. These settings keep their size
+% restrained and consistent.
+\RequirePackage{titlesec}
+\titleformat{\chapter}[display]
+  {\normalfont\bfseries\raggedright}
+  {\Large\chaptername\ \thechapter}
+  {0.5\baselineskip}
+  {\LARGE}
+\titlespacing*{\chapter}{0pt}{0pt}{2\baselineskip}
+
+\titleformat{\section}
+  {\Large\bfseries\raggedright}
+  {\thesection}{0.75em}{}
+
+\titleformat{\subsection}
+  {\large\bfseries\raggedright}
+  {\thesubsection}{0.75em}{}
+
+\titleformat{\subsubsection}
+  {\normalsize\bfseries\raggedright}
+  {\thesubsubsection}{0.75em}{}
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{2}
+
+% Consistent list spacing throughout every chapter.
+\setlist[itemize]{leftmargin=2em,itemsep=0.25\baselineskip,topsep=0.5\baselineskip}
+\setlist[enumerate]{leftmargin=2em,itemsep=0.25\baselineskip,topsep=0.5\baselineskip}
+\setlist[description]{style=nextline,leftmargin=2em,itemsep=0.5\baselineskip,
+  font=\normalfont\bfseries}
+
+% ---------- PAGE NUMBERS AND OPTIONAL RUNNING HEADS ----------
+\setlength{\headheight}{15pt}
+
+% Front and end pages: no running header; page number at bottom centre.
+\fancypagestyle{brightonfront}{
+  \fancyhf{}
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+% Main chapters: optional 9-point header with candidate, submission year
+% and page. The formal page number remains at the bottom centre.
+\fancypagestyle{brightonmain}{
+  \fancyhf{}
+  \ifbrightonrunningheads
+    \fancyhead[L]{\fontsize{9pt}{11pt}\selectfont\authorname}
+    \fancyhead[C]{\fontsize{9pt}{11pt}\selectfont Submission \submissionyear}
+    \fancyhead[R]{\fontsize{9pt}{11pt}\selectfont Page \thepage}
+    \renewcommand{\headrulewidth}{0.4pt}
+  \else
+    \renewcommand{\headrulewidth}{0pt}
+  \fi
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+\newcommand{\brightonfrontmatterstyle}{%
+  \pagestyle{brightonfront}%
+  \fancypagestyle{plain}{%
+    \fancyhf{}%
+    \fancyfoot[C]{\thepage}%
+    \renewcommand{\headrulewidth}{0pt}%
+    \renewcommand{\footrulewidth}{0pt}%
+  }%
+}
+
+\newcommand{\brightonmainmatterstyle}{%
+  \pagestyle{brightonmain}%
+  \fancypagestyle{plain}{%
+    \fancyhf{}%
+    \ifbrightonrunningheads
+      \fancyhead[L]{\fontsize{9pt}{11pt}\selectfont\authorname}%
+      \fancyhead[C]{\fontsize{9pt}{11pt}\selectfont Submission \submissionyear}%
+      \fancyhead[R]{\fontsize{9pt}{11pt}\selectfont Page \thepage}%
+      \renewcommand{\headrulewidth}{0.4pt}%
+    \else
+      \renewcommand{\headrulewidth}{0pt}%
+    \fi
+    \fancyfoot[C]{\thepage}%
+    \renewcommand{\footrulewidth}{0pt}%
+  }%
+}
+
+\brightonfrontmatterstyle
+
+% ---------- TABLES AND FIGURES ----------
+\captionsetup{font=normalsize,labelsep=colon}
+\captionsetup[table]{position=above,skip=6pt}
+\captionsetup[figure]{position=below,skip=6pt}
+
+% ---------- BIBLIOGRAPHY ----------
+% Cite Them Right Harvard (13th edition) configuration.
+% All referencing rules are grouped here so they can be changed centrally.
+% Zotero/Better BibLaTeX supplies the data in references.bib; these settings
+% control how Biber and biblatex display citations and the reference list.
+%
+% Cite Them Right is a proprietary guide and has no official biblatex style.
+% This configuration implements its core 13th-edition Harvard conventions:
+% author-date citations with a comma, "and" between authors, initials in the
+% reference list, alphabetical sorting, article/chapter titles in quotation
+% marks, no place of publication for books, and labelled online access details.
+\newif\ifbrightonbiblatex
+\IfFileExists{biblatex.sty}{
+  \brightonbiblatextrue
+  \RequirePackage[
+    backend=biber,
+    style=authoryear,
+    sorting=nyt,
+    giveninits=true,
+    maxcitenames=3,
+    mincitenames=1,
+    maxbibnames=99,
+    uniquename=init,
+    uniquelist=false,
+    dateabbrev=false,
+    urldate=long,
+    doi=true,
+    isbn=true,
+    url=true
+  ]{biblatex}
+
+  % Cite Them Right punctuation and name presentation.
+  \DeclareNameAlias{sortname}{family-given}
+  \DeclareDelimFormat{nameyeardelim}{\addcomma\space}
+  \DeclareDelimFormat{finalnamedelim}{\addspace and\space}
+  \DeclareDelimFormat[bib,biblist]{finalnamedelim}{\addspace and\space}
+
+  % Quotation marks around article and chapter titles.
+  \DeclareFieldFormat[article,incollection,inbook,inproceedings]
+    {title}{\mkbibquote{##1\isdot}}
+
+  % Cite Them Right 13 omits the place of publication for books.
+  \AtEveryBibitem{\clearlist{location}}
+
+  % Online-source labels and long British access dates.
+  \DeclareFieldFormat{url}{Available\space at\addcolon\space\url{##1}}
+  \DeclareFieldFormat{doi}{Available\space at\addcolon\space
+    \url{https://doi.org/##1}}
+  \DefineBibliographyStrings{english}{urlseen={Accessed}}
+}{
+  \brightonbiblatexfalse
+}
+
+% ---------- REUSABLE COMMANDS ----------
+\newcommand{\brightonfrontchapter}[1]{%
+  \chapter*{#1}%
+  \phantomsection%
+  \addcontentsline{toc}{chapter}{#1}%
+}
+
+\newenvironment{brightonquotation}
+  {\begin{singlespace}\begin{quote}}
+  {\end{quote}\end{singlespace}}
+
+\AtBeginEnvironment{longtable}{\singlespacing}
+\AtBeginEnvironment{thebibliography}{\singlespacing}
+\renewcommand{\notesname}{Endnotes}
+\raggedbottom
+
+% ---------- TITLE PAGE ----------
+% Matches the compact specimen supplied in the Brighton regulations.
+% The title-page font sizes and vertical positions can be changed here.
+\newcommand{\makebrightontitle}{%
+  \hypersetup{pageanchor=false}%
+  \newgeometry{left=32mm,right=32mm,top=20mm,bottom=20mm}%
+  \begin{titlepage}
+    \thispagestyle{empty}
+    \begin{singlespace}
+    \setlength{\parskip}{0pt}
+    \centering
+
+    \vspace*{54mm}
+    \rule{\textwidth}{0.4pt}
+
+    \vspace{16mm}
+    {\fontsize{11pt}{13pt}\selectfont\thesistitle\par}
+
+    \vspace{16mm}
+    {\fontsize{11pt}{13pt}\selectfont\authorname\par}
+
+    \vspace{13mm}
+    {\fontsize{10pt}{11pt}\selectfont
+      A thesis submitted in partial fulfilment of the\\
+      requirements of the University of Brighton\\
+      for the degree of \degree\par
+    }
+
+    \ifdefempty{\collaboratingestablishment}{}{%
+      \vspace{7mm}
+      {\fontsize{10pt}{11pt}\selectfont
+        In collaboration with \collaboratingestablishment\par}
+    }
+
+    \vspace{11mm}
+    {\fontsize{11pt}{13pt}\selectfont
+      \approvalmonth\ \approvalyear\par}
+
+    \vspace{14mm}
+    \rule{\textwidth}{0.4pt}
+    \end{singlespace}
+  \end{titlepage}
+  \restoregeometry
+  \hypersetup{pageanchor=true}
+  \setcounter{page}{2}
+}

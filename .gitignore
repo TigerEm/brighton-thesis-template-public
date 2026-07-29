@@ -1,0 +1,38 @@
+# LaTeX generated files
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.glg
+*.glo
+*.gls
+*.ist
+*.lof
+*.log
+*.lot
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.ent
+*.acn
+*.acr
+*.alg
+*.idx
+*.ilg
+*.ind
+
+# Editor and operating-system files
+*.bak
+*.tmp
+*~
+*.swp
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Locally compiled outputs
+main.pdf
+brighton-thesis-preview.pdf

@@ -1,0 +1,80 @@
+\chapter{Results}
+
+\section{Participant flow}
+Figure~\ref{fig:flow} provides a second automatically numbered figure.
+
+\begin{figure}[htbp]
+  \centering
+  \setlength{\unitlength}{1mm}
+  \begin{picture}(90,55)
+    \put(25,40){\framebox(40,10){120 assessed}}
+    \put(45,40){\vector(0,-1){10}}
+    \put(25,20){\framebox(40,10){100 recruited}}
+    \put(45,20){\vector(0,-1){10}}
+    \put(25,0){\framebox(40,10){92 analysed}}
+  \end{picture}
+  \caption{Illustrative participant flow through the study}
+  \label{fig:flow}
+\end{figure}
+
+\section{Illustrative findings}
+The hypothetical imaging measure changed between baseline and follow-up. Replace
+this example with the actual analysis and its corresponding tables or figures.
+
+\begin{table}[htbp]
+  \caption{Illustrative baseline characteristics}
+  \label{tab:baseline}
+  \centering
+  \begin{tabular}{lcc}
+    \toprule
+    Characteristic & Analysed sample & Missing \\
+    \midrule
+    Participants, \(n\) & 92 & -- \\
+    Age, mean (SD), years & 57.4 (8.6) & 0 \\
+    Female, \(n\) (\%) & 54 (58.7) & 0 \\
+    Pain score, mean (SD) & 3.8 (1.9) & 2 \\
+    Cartilage thickness, mean (SD), mm & 2.31 (0.28) & 4 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Table~\ref{tab:baseline} shows the recommended practice of giving the table
+number and title above the table. Units are included in the row labels, and
+missingness is reported explicitly.
+
+\section{Multi-panel figure}
+Figure~\ref{fig:two-panel} demonstrates two panels within a single numbered
+figure.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}[t]{0.46\textwidth}
+    \centering
+    \begin{tikzpicture}[scale=0.85,transform shape]
+      \draw[->] (0,0) -- (5.0,0) node[right] {Time};
+      \draw[->] (0,0) -- (0,3.2) node[above] {Measure};
+      \draw[blue,thick] plot[smooth] coordinates
+        {(0.3,0.6) (1.2,0.9) (2.2,1.2) (3.2,1.8) (4.4,2.5)};
+    \end{tikzpicture}
+    \caption{Increasing trajectory}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[t]{0.46\textwidth}
+    \centering
+    \begin{tikzpicture}[scale=0.85,transform shape]
+      \draw[->] (0,0) -- (5.0,0) node[right] {Time};
+      \draw[->] (0,0) -- (0,3.2) node[above] {Measure};
+      \draw[red!70!black,thick] plot[smooth] coordinates
+        {(0.3,2.5) (1.2,2.1) (2.2,1.7) (3.2,1.1) (4.4,0.7)};
+    \end{tikzpicture}
+    \caption{Decreasing trajectory}
+  \end{subfigure}
+  \caption{Illustrative longitudinal trajectories shown as two panels}
+  \label{fig:two-panel}
+\end{figure}
+
+\section{Result summary}
+The example results chapter now contains a flow diagram, a conventional table
+and a multi-panel vector figure. Actual analyses should report effect estimates,
+uncertainty, denominators and missing data alongside clinically meaningful
+interpretation.

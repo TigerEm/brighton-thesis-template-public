@@ -1,0 +1,112 @@
+\chapter{Methods}
+
+\section{Study design}
+Describe the study population, sampling, imaging procedures, outcomes and
+analysis plan. Table~\ref{tab:measures} demonstrates an ordinary floating table.
+LaTeX supplies the chapter-based number and adds the caption to the list of
+tables.
+
+For illustration, assume a prospective cohort with baseline and 24-month
+follow-up. Participants would undergo symptom assessment, clinical examination
+and a standardised imaging protocol. An analysis plan written before outcome
+assessment would identify the primary measure, expected confounders and approach
+to missing observations.
+
+\subsection{Eligibility}
+An example set of inclusion criteria might require adults with knee symptoms
+but no established radiographic disease. Exclusion criteria could include
+contraindications to MRI, inflammatory arthritis, recent major trauma or
+inability to complete follow-up.
+
+\subsubsection{Recruitment pathway}
+Potential participants could be identified through primary care, community
+advertising or existing research cohorts. Screening should use the same written
+criteria in every setting, and the number approached, assessed and enrolled
+should be retained for the participant-flow diagram.
+
+\subsubsection{Consent and withdrawal}
+The information sheet should explain the imaging procedure, use of clinical
+data, foreseeable burdens and the right to withdraw. The thesis should
+distinguish withdrawal from further contact, withdrawal from future data
+collection and any request concerning data already obtained.
+
+\subsection{Imaging acquisition}
+Scanner field strength, coils, positioning, sequences, voxel dimensions and
+quality-control procedures should be reported sufficiently clearly for the
+method to be reproduced.
+
+\begin{table}[htbp]
+  \caption{Example research measures}
+  \label{tab:measures}
+  \centering
+  \begin{tabular}{lll}
+    \toprule
+    Domain & Measure & Purpose \\
+    \midrule
+    Imaging & Cartilage thickness & Structural change \\
+    Clinical & Pain score & Patient experience \\
+    Mechanical & Knee load & Physical exposure \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section{Multi-page tables}
+The \texttt{longtable} environment repeats its headings automatically when a
+table crosses a page boundary. The short example below uses the same structure
+and can be extended with additional rows.
+
+\begin{longtable}{@{}p{0.22\textwidth}p{0.28\textwidth}p{0.38\textwidth}@{}}
+\caption{Example data dictionary}
+\label{tab:data-dictionary}\\
+\toprule
+Variable & Type & Description \\
+\midrule
+\endfirsthead
+
+\multicolumn{3}{@{}l}{\tablename\ \thetable\ continued}\\
+\toprule
+Variable & Type & Description \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{3}{r@{}}{Continued on next page}\\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+Participant ID & Text & Pseudonymous study identifier. \\
+Age & Number & Age at baseline assessment. \\
+Pain score & Number & Patient-reported symptom measure. \\
+Cartilage thickness & Number & Quantitative structural imaging measure. \\
+T2 relaxation time & Number & Quantitative compositional imaging measure. \\
+\end{longtable}
+
+\section{Analysis}
+Continuous variables could be summarised using means and standard deviations or
+medians and interquartile ranges, depending on their distributions. Model
+assumptions should be checked and uncertainty reported using confidence
+intervals rather than relying only on thresholded significance tests.
+
+\begin{equation}
+  Y_{24} = \beta_0 + \beta_1 X_{\mathrm{MRI}}
+           + \beta_2 Y_0 + \beta_3 A + \varepsilon,
+  \label{eq:analysis-model}
+\end{equation}
+
+Equation~\ref{eq:analysis-model} illustrates a follow-up outcome adjusted for
+baseline outcome \(Y_0\), age \(A\), and an MRI predictor.
+
+\subsection{Sensitivity analyses}
+Sensitivity analyses might repeat the primary model after alternative handling
+of missing data, exclusion of scans that failed quality control and adjustment
+for additional prespecified confounders. These analyses should test the
+robustness of interpretation rather than act as a search for a preferred
+result.
+
+\subsection{Reporting}
+Results should be presented with denominators, effect estimates and confidence
+intervals. Tables should be understandable without repeatedly consulting the
+main text, while the narrative should highlight the pattern of findings rather
+than reproduce every number in the table.

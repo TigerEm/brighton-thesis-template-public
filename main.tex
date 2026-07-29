@@ -1,0 +1,62 @@
+\documentclass[12pt,a4paper,oneside,openany]{book}
+% Remove [runningheads] if you do not want the optional main-text header.
+\usepackage[runningheads]{brightonthesis}
+
+% ================================================================
+% THESIS DETAILS - edit these values
+% ================================================================
+\newcommand{\thesistitle}{Example Thesis Title}
+\newcommand{\authorname}{Candidate Name}
+\newcommand{\degree}{Doctor of Philosophy}
+\newcommand{\approvalmonth}{July}
+\newcommand{\approvalyear}{2026}
+\newcommand{\submissionyear}{2026}
+\newcommand{\collaboratingestablishment}{}
+
+\hypersetup{
+  pdftitle={\thesistitle},
+  pdfauthor={\authorname}
+}
+
+\ifbrightonbiblatex
+  \addbibresource{references.bib}
+\fi
+
+% During editing, compile selected chapters only, for example:
+% \includeonly{chapters/01-introduction,chapters/03-results}
+
+\begin{document}
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\makebrightontitle
+
+% ---------- FRONT PAGES ----------
+\brightonfrontmatterstyle
+\include{frontmatter/abstract}
+\include{frontmatter/contents}
+\include{frontmatter/acronyms}
+\include{frontmatter/preface}
+\include{frontmatter/acknowledgements}
+\include{frontmatter/declaration}
+
+% ---------- MAIN TEXT ----------
+\brightonmainmatterstyle
+\include{chapters/01-introduction}
+\include{chapters/02-methods}
+\include{chapters/03-results}
+\include{chapters/04-discussion}
+\include{chapters/05-conclusion}
+\include{chapters/06-formatting-showcase}
+
+% ---------- END PAGES ----------
+\brightonfrontmatterstyle
+\include{backmatter/endnotes}
+\include{backmatter/glossary}
+\include{backmatter/references}
+\include{backmatter/bibliography}
+
+\appendix
+\include{appendices/appendix-a}
+
+\end{document}
