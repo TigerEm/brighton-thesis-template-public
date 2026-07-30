@@ -7,8 +7,7 @@
 > the finished thesis with the complete regulations and current advice from
 > the Doctoral College before submission.
 
-The supplied thesis title, *Osteoarthritis Imaging in the Stone Age: An
-Investigation Using Prehistoric Scanning Methods*, and the candidate name
+The supplied thesis title, *An Imaginary Thesis*, and the candidate name
 `A. N. Example` are deliberately fictional. They must not be interpreted as
 real research or personal information.
 
