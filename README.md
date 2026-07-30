@@ -1,4 +1,91 @@
-UNIVERSITY OF BRIGHTON THESIS PROJECT
+# Unofficial University of Brighton LaTeX thesis template
+
+> **Status:** This is an independent, unofficial template. It has not been
+> endorsed, checked or approved by the University of Brighton. It implements
+> the requirements supplied from *University of Brighton: Regulations for
+> Research Degrees 2025–26*, principally pages 38–39. Candidates must compare
+> the finished thesis with the complete regulations and current advice from
+> the Doctoral College before submission.
+
+The supplied thesis title, *Osteoarthritis Imaging in the Stone Age: An
+Investigation Using Prehistoric Scanning Methods*, and the candidate name
+`A. N. Example` are deliberately fictional. They must not be interpreted as
+real research or personal information.
+
+## Exactly what typesetting is included
+
+The template currently includes the following typesetting and document
+behaviour. Features not listed here should not be assumed.
+
+1. A4 paper using the `book` document class.
+2. A 12-point main-text base size.
+3. Arial as the first-choice main font.
+4. Helvetica as the second-choice fallback.
+5. Times New Roman as the third-choice fallback.
+6. DejaVu Sans as the final compatibility fallback.
+7. A 40 mm left binding margin.
+8. A 20 mm right margin.
+9. A 20 mm top margin.
+10. A 20 mm bottom margin.
+11. One-and-a-half spacing in ordinary thesis text.
+12. Single spacing in indented quotations.
+13. Single spacing in long tables.
+14. Single spacing in the reference list.
+15. Flush-left paragraphs.
+16. Additional vertical space between paragraphs.
+17. No ordinary first-line paragraph indentation.
+18. Ragged-right text rather than forced right justification.
+19. Strong suppression of end-of-line word division.
+20. Left-aligned chapter, section, subsection and subsubsection headings.
+21. Automatic numbered chapters.
+22. Automatic heading numbering through subsubsection, such as `1.2.3.4`.
+23. A table of contents displaying chapters, sections and subsections.
+24. An automatic list of tables.
+25. An automatic list of figures.
+26. Arabic page numbering.
+27. A title page counted in the sequence but carrying no printed number.
+28. A compact title page based on the supplied Brighton specimen.
+29. Horizontal rules above and below the central title-page information.
+30. Fields for thesis title, candidate, degree, approval month and year.
+31. An optional collaborating-establishment field.
+32. Bottom-centred formal page numbers.
+33. Optional 9-point main-matter running headings containing candidate name,
+    submission year and page.
+34. Suppression of running headings in the title page, front matter and
+    back matter.
+35. Table numbers and captions above tables.
+36. Figure numbers and captions below figures.
+37. Standard tables using `booktabs`.
+38. Multi-page tables with repeating column headings using `longtable`.
+39. Figures and subfigures.
+40. Mathematical notation and numbered equations.
+41. Labels, automatic cross-references and PDF hyperlinks.
+42. Bullet, numbered and description lists.
+43. Indented quotations.
+44. Footnotes.
+45. Endnote markers and a printable endnotes section.
+46. Abstract, contents, lists, acronyms, preface, acknowledgements and
+    declaration front-matter examples.
+47. Glossary, list of references, optional bibliography and appendices.
+48. One source file per chapter, included by `main.tex`.
+49. Selective chapter compilation using `\includeonly`.
+50. `biblatex` and Biber bibliography processing.
+51. A custom approximation of Cite Them Right Harvard, 13th edition.
+52. Zotero/Better BibLaTeX-compatible `references.bib` input.
+53. Author–date parenthetical and narrative citations.
+54. Alphabetical author–year reference-list sorting.
+55. Worked examples of prose, four heading levels, lists, two figures, a
+    standard table, a multi-page table, equations, quotations, citations,
+    cross-references, a footnote and an endnote.
+
+### Title-size caution
+
+The supplied specimen visually uses a compact title, and that is the version
+implemented here. The accompanying written instruction appears to mention at
+least 24-point type. Because those sources may be interpreted differently,
+confirm the required title size with the Doctoral College before submission.
+
+## Quick start
 
 QUICK START - WHAT TO OPEN
 
@@ -33,7 +120,7 @@ WHERE TO SEE EACH FEATURE
     Numbered list                   chapters/06-formatting-showcase.tex
     Labelled description list       chapters/06-formatting-showcase.tex
     Two example figures             chapters/06-formatting-showcase.tex
-    External-figure instructions    README.txt, ADDING AN EXTERNAL FIGURE
+    External-figure instructions    README.md, ADDING AN EXTERNAL FIGURE
     Standard table                  chapters/06-formatting-showcase.tex
     Multi-page table                chapters/02-methods.tex
     Equation and quotation          chapters/06-formatting-showcase.tex
@@ -107,7 +194,7 @@ number remains at the bottom centre, as required by the pagination guidance.
 The option is already enabled in the supplied main.tex, so the compiled example
 shows the running header on every numbered chapter page:
 
-    Candidate Name      Submission 2026              Page 12
+    A. N. Example       Submission 2026              Page 12
 
 Edit \authorname and \submissionyear near the top of main.tex; the header
 changes automatically throughout the main text.
@@ -405,6 +492,34 @@ Cite Them Right has no official biblatex package, so unusual source types
 should be checked against the current Cite Them Right Online example. All
 style adjustments are centralised in brightonthesis.sty so a later edition or
 different University requirement can be adopted without editing the chapters.
+
+AUTOMATIC AND MANUAL REFERENCE CHECKING
+
+No tool can currently certify that a bibliography is fully compliant with
+Cite Them Right Harvard. Cite Them Right does not publish an official
+machine-readable validation ruleset or an official biblatex style. Use these
+two layers instead:
+
+1. Automatic technical validation. Biber checks entry types, required data
+   structures, dates, names and other BibLaTeX data-model issues. In a Windows
+   command prompt opened in the thesis folder, run:
+
+       biber --tool --validate-datamodel references.bib
+
+   This reports malformed or unsupported bibliography data. It does not prove
+   that the displayed punctuation and source-type format match Cite Them
+   Right.
+
+2. Manual style verification. After compiling the thesis, compare at least one
+   rendered example of every source type used against the corresponding
+   current Cite Them Right 13th-edition example. In particular check authors,
+   year, title capitalisation, edition, journal details, DOI or URL and access
+   date.
+
+Zotero reduces transcription errors but cannot verify that the imported
+metadata is correct. Check imported records for sentence fragments, all-capital
+titles, missing authors, incorrect item types and absent dates before relying
+on the generated reference.
 
 INSTALLING BETTER BIBTEX IN ZOTERO
 

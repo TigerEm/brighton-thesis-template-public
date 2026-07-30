@@ -1,6 +1,8 @@
-# LaTeX generated files
+# LaTeX intermediate files
+*.acn
+*.acr
+*.alg
 *.aux
-*.bbl
 *.bcf
 *.blg
 *.fdb_latexmk
@@ -8,31 +10,38 @@
 *.glg
 *.glo
 *.gls
-*.ist
-*.lof
-*.log
-*.lot
-*.out
-*.run.xml
-*.synctex.gz
-*.toc
-*.ent
-*.acn
-*.acr
-*.alg
 *.idx
 *.ilg
 *.ind
+*.lof
+*.log
+*.lot
+*.nav
+*.out
+*.run.xml
+*.snm
+*.synctex.gz
+*.toc
+*.vrb
+*.xdv
+missfont.log
 
-# Editor and operating-system files
+# Biber output can always be regenerated from references.bib
+*.bbl
+
+# Local editor and operating-system files
 *.bak
-*.tmp
-*~
 *.swp
-Thumbs.db
-desktop.ini
+*~
 .DS_Store
+Thumbs.db
 
-# Locally compiled outputs
-main.pdf
-brighton-thesis-preview.pdf
+# Sensitive or private material must be kept outside the public template
+.env
+private/
+data/
+zotero-storage/
+
+# Keep the distributed example PDF. Ignore other PDFs by default.
+*.pdf
+!brighton-thesis-preview.pdf

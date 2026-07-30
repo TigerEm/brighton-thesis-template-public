@@ -1,11 +1,11 @@
-UNIVERSITY OF BRIGHTON THESIS TEMPLATE - PUBLIC DEVELOPMENT COPY
-Created: 29 July 2026
+BRIGHTON THESIS TEMPLATE - BUILD 10
+Created: 30 July 2026
 
 This archive must contain:
 
 - main.tex
 - brightonthesis.sty
-- README.txt
+- README.md
 - brighton-thesis-preview.pdf
 - chapters/06-formatting-showcase.tex
 
@@ -33,6 +33,11 @@ Build 8 additionally includes:
 Build 9 fixes the BibLaTeX field-parameter escaping required when the
 bibliography configuration is evaluated inside \IfFileExists on MiKTeX.
 
-This public copy uses neutral candidate and thesis metadata. It is intended
-for development in a separate public GitHub repository and must not be given
-the Git history of a private working thesis.
+Build 10 additionally includes:
+
+- README.md with an exact typesetting inventory;
+- an explicit unofficial-template notice;
+- deliberately fictional public example metadata;
+- a title-size compliance caution;
+- .gitignore and CHANGELOG.md; and
+- a documented two-layer bibliography validation process.
